@@ -21,7 +21,7 @@ app.listen(process.env.PORT || 5000, () =>
 	console.log("It's alive!")
 );
 
-app.get('/home', calcRate());
+app.get('/home', calcRate(res, req));
 // app.listen(app.get('port'), function() {
 //     console.log('App running on port ', app.get('port'))
 // })
@@ -32,15 +32,15 @@ function calcRate(req, res) {
 }
 function doMath(res, type, weight) {
     var rate = 0;
-    switch (operation)
+    switch (type)
     {
         case "stamped":
-      var base = 0.50;
-      if (weight > 3.5) {
-        return "For weights larger than 3.5 please select 'Large Envelopes' or 'First Class Package' option";
-      }else{
-        rate = Math.floor(weight) * 0.21 + base;
-      }
+	      var base = 0.50;
+	      if (weight > 3.5) {
+	        return "For weights larger than 3.5 please select 'Large Envelopes' or 'First Class Package' option";
+	      }else{
+	        rate = Math.floor(weight) * 0.21 + base;
+	      }
             break;
         case "metered":
       var base = 0.47;
@@ -78,7 +78,7 @@ function doMath(res, type, weight) {
     {
         type: type,
         weight: weight,
-    rate:rate
+    	rate:rate
     }
     res.render('pages/result', calc);
 }

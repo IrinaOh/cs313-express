@@ -22,7 +22,7 @@ app.listen(process.env.PORT || 5000, () =>
 );
 
 app.get('/home', calcRate){
-	res.render("home");
+	res.render("result");
 }
 // app.listen(app.get('port'), function() {
 //     console.log('App running on port ', app.get('port'))

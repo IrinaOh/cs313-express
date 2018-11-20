@@ -70,7 +70,7 @@ function doMath(res, type, weight) {
         weight: weight,
     	rate:rate
     }
-    res.render('views/result', calc);
+    res.render('result.ejs', calc);
 }
 
 

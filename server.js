@@ -1,32 +1,22 @@
 var express = require("express");
 const app = express();
 
-app.use(express.static("public"));
+app.set('port', (process.env.PORT || 5000));
 
-app.set("views", "views");
-app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/public'));
 
-// app.get("/", function(req, res){
-// 	console.log("Received a request for /");
-// 	res.write("This is the root.");
-// 	res.end();
-// });
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
-// app.get("/home", function(req, res){
-// 	console.log("Received a request for a home page");
-// 	res.render("home");
-// });
+app.get('/home', calcRate);
 
-app.listen(process.env.PORT || 5000, () =>
-	console.log("It's alive!")
-);
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
-app.get('/home', calcRate());
-// app.listen(app.get('port'), function() {
-//     console.log('App running on port ', app.get('port'))
-// })
 function calcRate(req, res) {
-    var type = req.type
+    var type = req.query.type
     var weight = Number(req.query.weight)
     doMath(res, type, weight)
 }

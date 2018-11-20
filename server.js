@@ -25,45 +25,45 @@ function doMath(res, type, weight) {
     switch (type)
     {
         case "stamped":
-	      var base = 0.50;
-	      if (weight > 3.5) {
-	        return "For weights larger than 3.5 please select 'Large Envelopes' or 'First Class Package' option";
-	      }else{
-	        rate = Math.floor(weight) * 0.21 + base;
-	      }
+	        var base = 0.50;
+	        if (weight > 3.5) {
+	       		return "For weights larger than 3.5 please select 'Large Envelopes' or 'First Class Package' option";
+	        }else{
+	        	rate = (Math.floor(weight)-1) * 0.21 + base;
+	        }
             break;
         case "metered":
-      var base = 0.47;
-      if (weight > 3.5) {
-        return "For weights larger than 3.5 please select 'Large Envelopes' or 'First Class Package' option";
-      }else{
-        rate = Math.floor(weight) * 0.21 + base;
-      }
+      		var base = 0.47;
+      		if (weight > 3.5) {
+        		return "For weights larger than 3.5 please select 'Large Envelopes' or 'First Class Package' option";
+      		}else{
+        		rate = Math.floor(weight) * 0.21 + base;
+      		}
             break;
         case "flats":
-      var base = 1;
-      if (weight > 13) {
-        return "Weight cannot be over 13 oz.";
-      }else{
-        rate = Math.floor(weight) * 0.21 + base;
-      }
+      		var base = 1;
+      		if (weight > 13) {
+        		return "Weight cannot be over 13 oz.";
+      		}else{
+        		rate = Math.floor(weight) * 0.21 + base;
+      		}
             break;
         case "package":
-    var base = 3.75;
-      if(0 < weight <= 4){
-        rate = 3.50;
-        return rate;
-      }else if(4 < weight <= 8){
-        rate = 3.75;
-        return rate;
-      }else if( 8 < weight <= 13){
-        rate = (Math.floor(weight) - 8) * 0.35 + base;
-        return rate;
-      } else{
-        return "Weight cannot be less than 0 oz.";
-      }
+    		var base = 3.75;
+      		if(0 < weight <= 4){
+        		rate = 3.50;
+        		return rate;
+      		}else if(4 < weight <= 8){
+        		rate = 3.75;
+        		return rate;
+      		}else if( 8 < weight <= 13){
+        		rate = (Math.floor(weight) - 8) * 0.35 + base;
+        		return rate;
+      		} else{
+        		return "Weight cannot be less than 0 oz.";
+      		}
             break;
-    }
+	}
     var calc =
     {
         type: type,

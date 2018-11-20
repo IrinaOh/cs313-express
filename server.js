@@ -37,7 +37,7 @@ function doMath(res, type, weight) {
       		if (weight > 3.5) {
         		return "For weights larger than 3.5 please select 'Large Envelopes' or 'First Class Package' option";
       		}else{
-        		rate = Math.floor(weight) * 0.21 + base;
+        		rate = (Math.floor(weight)-1) * 0.21 + base;
       		}
             break;
         case "flats":
@@ -45,7 +45,7 @@ function doMath(res, type, weight) {
       		if (weight > 13) {
         		return "Weight cannot be over 13 oz.";
       		}else{
-        		rate = Math.floor(weight) * 0.21 + base;
+        		rate = (Math.floor(weight)-1) * 0.21 + base;
       		}
             break;
         case "package":

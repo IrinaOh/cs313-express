@@ -1,6 +1,4 @@
 var express = require("express");
-const app = express()
-
 var app = express();
 
 app.use(express.static("public"));
@@ -23,7 +21,9 @@ app.listen(process.env.PORT || 5000, () =>
 	console.log("It's alive!")
 );
 
-app.get('/home', calcRate)
+app.get('/home', calcRate){
+	res.render("home");
+}
 // app.listen(app.get('port'), function() {
 //     console.log('App running on port ', app.get('port'))
 // })

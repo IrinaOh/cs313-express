@@ -23,9 +23,9 @@ app.listen(process.env.PORT || 5000, () =>
 );
 
 app.get('/home', calcRate)
-app.listen(app.get('port'), function() {
-    console.log('App running on port ', app.get('port'))
-})
+// app.listen(app.get('port'), function() {
+//     console.log('App running on port ', app.get('port'))
+// })
 function calcRate(req, res) {
     var type = req.query.type
     var weight = Number(req.query.weight)

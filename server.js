@@ -21,12 +21,12 @@ app.listen(process.env.PORT || 5000, () =>
 	console.log("It's alive!")
 );
 
-app.get('/home', calcRate(req, res));
+app.get('/home', calcRate());
 // app.listen(app.get('port'), function() {
 //     console.log('App running on port ', app.get('port'))
 // })
 function calcRate(req, res) {
-    var type = req.query.type
+    var type = req.type
     var weight = Number(req.query.weight)
     doMath(res, type, weight)
 }

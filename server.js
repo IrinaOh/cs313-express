@@ -22,7 +22,7 @@ app.listen(process.env.PORT || 5000, () =>
 	console.log("It's alive!")
 );
 
-app.get('/calcRate', calcRate)
+app.get('/home', calcRate)
 app.listen(app.get('port'), function() {
     console.log('App running on port ', app.get('port'))
 })

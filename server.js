@@ -1,11 +1,12 @@
 var express = require("express");
 const app = express();
+var path = require ('path');
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-app.set('views', '/views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/calc', calcRate);
@@ -69,7 +70,7 @@ function doMath(res, type, weight) {
         weight: weight,
     	rate:rate
     }
-    res.render('result', calc);
+    res.render('views/result', calc);
 }
 
 

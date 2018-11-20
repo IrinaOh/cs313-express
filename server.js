@@ -21,7 +21,7 @@ app.listen(process.env.PORT || 5000, () =>
 	console.log("It's alive!")
 );
 
-app.get('/home', calcRate(req, res)){
+app.get('/home', calcRate()){
 	res.render("result");
 }
 // app.listen(app.get('port'), function() {
